@@ -6,12 +6,12 @@ echo -e " \n Hello! $(whoami)"
 
 echo -e "  \n ================================================"
 # To get present users & groups.
-USR=$(awk -F: '$3 >= 1000 {print $1}' /etc/passwd | tail -n 3)
-UGRP=$(awk -F: '$3 >= 1000 {print $1}' /etc/group | tail -n 3)
+PUL=$(awk -F: '$3 >= 1000 {print $1}' /etc/passwd | tail -n 3)
+PUG=$(awk -F: '$3 >= 1000 {print $1}' /etc/group | tail -n 3)
 
-echo -e "  \n PRESENT_USERS_LIST: \n $USR"
+echo -e "  \n PRESENT_USERS_LIST: \n $PUL"
 echo -e "  \n ================================================"
-echo -e "  \n PRESENT_GROUP_LIST: \n $UGRP"
+echo -e "  \n PRESENT_GROUP_LIST: \n $PUG"
 echo " "
 ########################################################################
 
@@ -74,7 +74,7 @@ usr_grp() {
 
 	# To get present user group list.
 	PUG=$(awk -F: '$3 >= 1000 {print $1}' /etc/group | tail -n +3)
-	echo "$USR"
+	echo "$PUG"
 
 	#To get usergroup name to be create.
 	echo "Enter the usergroup name here"
@@ -214,3 +214,4 @@ elif [ $O == G ] || [ $O == g ]; then
 else
 	echo " Enter valid input, Exited"
 fi
+
